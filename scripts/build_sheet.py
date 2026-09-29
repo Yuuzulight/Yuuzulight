@@ -284,7 +284,8 @@ def sheet(theme):
            f'<rect x="28" y="28" width="{W - 56}" height="{H - 56}" rx="6" fill="none" stroke="{c["lilac"]}" stroke-opacity=".8"/>',
            f'<g transform="translate(34 34)">{branch(c)}</g>',
            f'<g transform="translate({W - 34} 34) scale(-1 1)">{branch(c, lantern=True)}</g>',
-           f'<g transform="translate({W - 34} {H - 34}) scale(-1 -1)">{branch(c)}</g>']
+           # bottom-left: the bottom-right corner belongs to the map's main quest and compass
+           f'<g transform="translate(34 {H - 34}) scale(.7 -.7)">{branch(c)}</g>']
 
     # header: centred ribbon, seal on the right tail, tagline, slim fields row
     out += [f'<path d="M166 82 H252 V162 H166 L190 122 Z" fill="{RIBBON[2]}"/>',
@@ -362,7 +363,7 @@ def sheet(theme):
                + "".join(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx - k * 16}" ry="{ry - k * 7}" transform="rotate({rot} {cx} {cy})"/>'
                          for cx, cy, rx, ry, rot in [(300, MY + 118, 64, 20, -6), (600, MY + 116, 58, 18, 5)] for k in range(3))
                + '</g>')
-    stops = ([(100, MY + 116)] + [(190 + i * 540 / (len(ROAD) - 1), MY + (84 if i % 2 == 0 else 146)) for i in range(len(ROAD))]
+    stops = ([(150, MY + 116)] + [(240 + i * 490 / (len(ROAD) - 1), MY + (84 if i % 2 == 0 else 146)) for i in range(len(ROAD))]
              + [(812, MY + 124)])
     out.append(f'<path d="{smooth(stops)}" fill="none" stroke="{c["trail"]}" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9"/>')
     for i, (x, y) in enumerate(stops[:-1]):  # wisps breathe in turn along the trail
@@ -390,7 +391,8 @@ def sheet(theme):
     # drifting petals; with reduced motion they rest where they are placed
     out.append('<g clip-path="url(#paper)">')
     for i in range(10):
-        x, y = 60 + i * 92 + rnd.uniform(-20, 20), rnd.uniform(150, 1150)
+        # rest in the side margins, so a still frame (or reduced motion) never covers text
+        x, y = (rnd.uniform(16, 40) if i % 2 else rnd.uniform(960, 984)), 200 + i * 95 + rnd.uniform(-30, 30)
         out.append(f'<g transform="translate({x:.0f} {y:.0f}) scale({rnd.uniform(.8, 1.3):.2f})">'
                    f'<use href="#petal" class="petal" style="animation-duration:{rnd.uniform(18, 30):.1f}s;animation-delay:{-rnd.uniform(0, 30):.1f}s"/></g>')
     out += ['</g>', '</svg>']
@@ -482,7 +484,8 @@ def item_card(p, theme, wide=False):
     w, h = (500, 300) if wide else (330, 300)
     body = [rarity_label(34, 60, r, c), t(34, 114, p["name"], "nm")]
     body += [t(34, 166 + 36 * i, line, "ds") for i, line in enumerate(p["lines"])]
-    body.append(t(34, 262, p["stack"], "st"))
+    tight = len(p["stack"]) > (30 if wide else 20)  # keep long stack lines clear of the border
+    body.append(t(34, 262, p["stack"], "st", extra=' style="font-size:21px"' if tight else ""))
     return panel_svg(w, h, theme, "".join(body), f'{p["name"]}: {r.title()} {p["type"].lower()}', tier=r)
 
 
