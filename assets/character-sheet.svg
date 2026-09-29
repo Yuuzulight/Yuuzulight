@@ -1,5 +1,5 @@
 <svg width="1000" height="1150" viewBox="0 0 1000 1150" xmlns="http://www.w3.org/2000/svg">
-<title>Yuuzulight: level 10 Artificer (Battle Smith), Local-First Good</title>
+<title>Yuuzulight: Artificer 10 (Cartographer), Neutral Good</title>
 <defs><style>
   .label { font: 14px Georgia, 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif; letter-spacing: 2px; fill: #8a74c8; }
   .value { font: 21px Georgia, 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif; fill: #3a2a5e; }
@@ -50,7 +50,7 @@
 <path d="M592 124 H930 M761 70 V178" class="rule"/>
 <text x="592" y="102" class="value" text-anchor="start">Artificer 10</text>
 <text x="592" y="120" class="label" text-anchor="start">CLASS &amp; LEVEL</text>
-<text x="781" y="102" class="value" text-anchor="start">Battle Smith</text>
+<text x="781" y="102" class="value" text-anchor="start">Cartographer</text>
 <text x="781" y="120" class="label" text-anchor="start">SUBCLASS</text>
 <text x="592" y="168" class="value" text-anchor="start">Solo Developer</text>
 <text x="592" y="186" class="label" text-anchor="start">BACKGROUND</text>
@@ -160,7 +160,7 @@
 <text x="126" y="870" class="label" text-anchor="start">PASSIVE PERCEPTION</text>
 <rect x="510" y="506" width="440" height="258" rx="10" class="panel"/>
 <text x="530" y="530" class="label" text-anchor="start">FEATURES &amp; TRAITS</text>
-<text x="530" y="566" class="head" text-anchor="start">Steel Defender: Mana</text>
+<text x="530" y="566" class="head" text-anchor="start">Homunculus Servant: Mana</text>
 <text x="530" y="588" class="body" text-anchor="start">A companion construct with a voice and a face.</text>
 <text x="530" y="620" class="head" text-anchor="start">Infuse Item: Local-first</text>
 <text x="530" y="642" class="body" text-anchor="start">Every tool runs on your own machine.</text>

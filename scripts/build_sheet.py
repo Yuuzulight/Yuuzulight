@@ -14,7 +14,7 @@ ASSETS = Path(__file__).resolve().parent.parent / "assets"
 # ---------------------------------------------------------------- data
 NAME = "YUUZULIGHT"
 FIELDS = [  # (value, label), laid out 2x2
-    ("Artificer 10", "CLASS & LEVEL"), ("Battle Smith", "SUBCLASS"),
+    ("Artificer 10", "CLASS & LEVEL"), ("Cartographer", "SUBCLASS"),
     ("Solo Developer", "BACKGROUND"), ("Neutral Good", "ALIGNMENT"),
 ]
 LEVEL = 10  # one level per public project
@@ -35,7 +35,7 @@ SKILLS = [  # (name, ability, proficient, flavour)
     ("Perception", "WIS", False, "screen awareness"),
 ]
 FEATURES = [
-    ("Steel Defender: Mana", "A companion construct with a voice and a face."),
+    ("Homunculus Servant: Mana", "A companion construct with a voice and a face."),
     ("Infuse Item: Local-first", "Every tool runs on your own machine."),
     ("Tool Expertise", "C++, C#, Python, TypeScript and Go."),
     ("Flash of Genius", "Ten public projects, each built solo."),
@@ -144,7 +144,7 @@ def sheet():
     W, H = 1000, 1150
     torn = torn_path(W, H)
     out = [f'<svg width="{W}" height="{H}" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg">',
-           f'<title>Yuuzulight: level {LEVEL} Artificer (Battle Smith), Local-First Good</title>',
+           f'<title>Yuuzulight: {escape(FIELDS[0][0])} ({escape(FIELDS[1][0])}), {escape(FIELDS[3][0])}</title>',
            f'<defs><style>{CSS}</style>',
            f'<linearGradient id="paperFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{PAPER[0]}"/><stop offset=".55" stop-color="{PAPER[1]}"/><stop offset="1" stop-color="{PAPER[2]}"/></linearGradient>',
            f'<radialGradient id="vignette" cx=".5" cy=".5" r=".75"><stop offset=".7" stop-color="{ACCENT}" stop-opacity="0"/><stop offset="1" stop-color="{ACCENT}" stop-opacity=".14"/></radialGradient>',
