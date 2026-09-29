@@ -1,8 +1,16 @@
 <p align="center">
-  <a href="https://github.com/Yuuzulight/Mana"><img src="assets/character-sheet.svg" width="100%" alt="Character sheet for Yuuzulight, a level 10 Artificer (Cartographer), Neutral Good. The main quest is Mana." /></a>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/character-sheet-night.svg" />
+    <img src="assets/character-sheet-day.svg" width="100%" alt="Character sheet for Yuuzulight, a level 10 Artificer (Cartographer), Neutral Good, who tinkers with local-first AI, native Windows tools and data and ML. The main quest is Mana." />
+  </picture>
 </p>
 
-<p align="center"><img src="assets/header-infusions.svg" width="100%" alt="Infusions" /></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/header-infusions-night.svg" />
+    <img src="assets/header-infusions-day.svg" width="100%" alt="Infusions" />
+  </picture>
+</p>
 
 #### Companion infusions <sub>· local-first AI</sub>
 
@@ -69,7 +77,12 @@
 </tr>
 </table>
 
-<p align="center"><img src="assets/header-quest-board.svg" width="100%" alt="Quest board" /></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/header-quest-board-night.svg" />
+    <img src="assets/header-quest-board-day.svg" width="100%" alt="Quest board" />
+  </picture>
+</p>
 
 <table>
 <tr>
@@ -88,7 +101,12 @@
 </tr>
 </table>
 
-<p align="center"><img src="assets/header-equipment.svg" width="100%" alt="Equipment" /></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/header-equipment-night.svg" />
+    <img src="assets/header-equipment-day.svg" width="100%" alt="Equipment" />
+  </picture>
+</p>
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=cpp,cs,dotnet,py,ts,go,kubernetes,docker,pytorch&perline=9" alt="C++, C#, .NET, Python, TypeScript, Go, Kubernetes, Docker, PyTorch" />
