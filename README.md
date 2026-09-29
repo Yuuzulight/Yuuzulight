@@ -5,113 +5,45 @@
   </picture>
 </p>
 
+<!-- items:start -->
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/header-infusions-night.svg" />
-    <img src="assets/header-infusions-day.svg" width="100%" alt="Infusions" />
-  </picture>
-</p>
-
-#### Companion infusions <sub>· local-first AI</sub>
-
-<table>
-<tr>
-<td valign="top" width="50%">
-<b><a href="https://github.com/Yuuzulight/Mana">Mana</a></b> <sub>· C# / JS</sub><br/>
-<sub>Windows AI companion with a Live2D avatar. Speech-to-text, LLM, TTS and screen awareness all run locally.</sub>
-</td>
-<td valign="top" width="50%">
-<b><a href="https://github.com/Yuuzulight/Wisp">Wisp</a></b> <sub>· Python</sub><br/>
-<sub>Answer engine on SearXNG. Reranks, extracts and writes cited answers, with no index or cache.</sub>
-</td>
-</tr>
-<tr>
-<td valign="top">
-<b><a href="https://github.com/Yuuzulight/Hephastion">Hephastion</a></b> <sub>· Python</sub><br/>
-<sub>Uses an Obsidian vault as long-term memory for Hermes Desktop.</sub>
-</td>
-<td valign="top">
-<b><a href="https://github.com/Yuuzulight/Rozetta">Rozetta</a></b> <sub>· Python</sub><br/>
-<sub>MCP server exposing YouTube transcripts and stats as tools.</sub>
-</td>
-</tr>
-</table>
-
-#### Forged tools <sub>· native Windows</sub>
-
-<table>
-<tr>
-<td valign="top" width="50%">
-<b><a href="https://github.com/Yuuzulight/Argos">Argos</a></b> <sub>· C++</sub><br/>
-<sub>Rainmeter-style widget engine in C++17 / Win32 / Direct2D, with no third-party dependencies.</sub>
-</td>
-<td valign="top" width="50%">
-<b><a href="https://github.com/Yuuzulight/Folio">Folio</a></b> <sub>· C#</sub><br/>
-<sub>Lightweight HTML/CSS rendering engine for .NET, drawn natively with SkiaSharp.</sub>
-</td>
-</tr>
-</table>
-
-#### Scrying instruments <sub>· data & ML</sub>
-
-<table>
-<tr>
-<td valign="top" width="50%">
-<b><a href="https://github.com/Yuuzulight/Hecate">Hecate</a></b> <sub>· Python</sub><br/>
-<sub>Repository intelligence: multi-source ETL over GitHub, npm, PyPI and GitLab, with dbt on Kubernetes.</sub>
-</td>
-<td valign="top" width="50%">
-<b><a href="https://github.com/Yuuzulight/Veritarach">Veritarach</a></b> <sub>· Python</sub><br/>
-<sub>Fine-tuned DeBERTa AI-text detector, served as a live inference service.</sub>
-</td>
-</tr>
-<tr>
-<td valign="top">
-<b><a href="https://github.com/Yuuzulight/Veracia">Veracia</a></b> <sub>· Python</sub><br/>
-<sub>Shared evaluation harness that checks whether an ML output can be trusted.</sub>
-</td>
-<td valign="top">
-<b><a href="https://github.com/Yuuzulight/db-artisan">db-artisan</a></b> <sub>· agent skills</sub><br/>
-<sub>Agent skills for designing database schemas and data pipelines.</sub>
-</td>
-</tr>
-</table>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/header-quest-board-night.svg" />
-    <img src="assets/header-quest-board-day.svg" width="100%" alt="Quest board" />
-  </picture>
-</p>
-
-<table>
-<tr>
-<td valign="top" width="33%">
-<b>Summon a companion</b><br/>
-<sub>Set up Mana on your own Windows PC with the <a href="https://github.com/Yuuzulight/Mana/blob/main/docs/quick_start_windows.md">quick start</a>.</sub>
-</td>
-<td valign="top" width="33%">
-<b>Visit the tavern</b><br/>
-<sub>Bring ideas and questions to <a href="https://github.com/Yuuzulight/Mana/discussions">Mana's discussions</a>.</sub>
-</td>
-<td valign="top" width="33%">
-<b>Consult the atlas</b><br/>
-<sub>Every project, with write-ups, at <a href="https://yuuzulight.github.io">yuuzulight.github.io</a>.</sub>
-</td>
-</tr>
-</table>
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/header-equipment-night.svg" />
-    <img src="assets/header-equipment-day.svg" width="100%" alt="Equipment" />
-  </picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-crafted-items-night.svg" /><img src="assets/header-crafted-items-day.svg" width="100%" alt="Crafted items" /></picture>
 </p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=cpp,cs,dotnet,py,ts,go,kubernetes,docker,pytorch&perline=9" alt="C++, C#, .NET, Python, TypeScript, Go, Kubernetes, Docker, PyTorch" />
-  <br/>
-  <img src="https://img.shields.io/badge/dbt-FF694B?style=flat&logo=dbt&logoColor=white" alt="dbt" />
+  <a href="https://github.com/Yuuzulight/Mana"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-mana-night.svg" /><img src="assets/item-mana-day.svg" width="100%" alt="Mana, legendary companion and main quest" /></picture></a>
 </p>
+
+<p align="center">
+  <a href="https://github.com/Yuuzulight/Hecate"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-hecate-night.svg" /><img src="assets/item-hecate-day.svg" width="32%" alt="Hecate: Rare scrying instrument" /></picture></a>
+  <a href="https://github.com/Yuuzulight/Folio"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-folio-night.svg" /><img src="assets/item-folio-day.svg" width="32%" alt="Folio: Rare forged tool" /></picture></a>
+  <a href="https://github.com/Yuuzulight/Hephastion"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-hephastion-night.svg" /><img src="assets/item-hephastion-day.svg" width="32%" alt="Hephastion: Rare companion" /></picture></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Yuuzulight/Argos"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-argos-night.svg" /><img src="assets/item-argos-day.svg" width="48.5%" alt="Argos: Uncommon forged tool" /></picture></a>
+  <a href="https://github.com/Yuuzulight/Veritarach"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-veritarach-night.svg" /><img src="assets/item-veritarach-day.svg" width="48.5%" alt="Veritarach: Uncommon scrying instrument" /></picture></a>
+</p>
+
+<p align="center"><sub>COMMON ITEMS</sub><br/><a href="https://github.com/Yuuzulight/Rozetta">Rozetta</a> <sub>MCP server for YouTube transcripts and stats</sub> · <a href="https://github.com/Yuuzulight/Veracia">Veracia</a> <sub>Evaluation harness for trustworthy ML output</sub> · <a href="https://github.com/Yuuzulight/Wisp">Wisp</a> <sub>Cited answers on top of SearXNG</sub> · <a href="https://github.com/Yuuzulight/db-artisan">db-artisan</a> <sub>Agent skills for schemas and data pipelines</sub></p>
+
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-quest-board-night.svg" /><img src="assets/header-quest-board-day.svg" width="100%" alt="Quest board" /></picture>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Yuuzulight/Mana/blob/main/docs/quick_start_windows.md"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/quest-1-night.svg" /><img src="assets/quest-1-day.svg" width="32%" alt="Quest: Summon a companion" /></picture></a>
+  <a href="https://github.com/Yuuzulight/Mana/discussions"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/quest-2-night.svg" /><img src="assets/quest-2-day.svg" width="32%" alt="Quest: Visit the tavern" /></picture></a>
+  <a href="https://yuuzulight.github.io"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/quest-3-night.svg" /><img src="assets/quest-3-day.svg" width="32%" alt="Quest: Consult the atlas" /></picture></a>
+</p>
+
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-equipment-night.svg" /><img src="assets/header-equipment-day.svg" width="100%" alt="Equipment" /></picture>
+</p>
+
+<p align="center">
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/equipment-night.svg" /><img src="assets/equipment-day.svg" width="100%" alt="Equipment: C++, C# / .NET, Python, TypeScript, Docker, Kubernetes, dbt, PyTorch, llama.cpp, whisper.cpp, Live2D, SkiaSharp, Direct2D" /></picture>
+</p>
+<!-- items:end -->
 
 <p align="center"><sub>✦ Long rest taken. Thanks for stopping by, adventurer. ✦</sub></p>

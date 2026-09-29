@@ -39,7 +39,7 @@ SKILLS = [  # (name, ability, proficient, flavour)
 FEATURES = [
     ("Homunculus Servant: Mana", "A companion construct with a voice and a face."),
     ("Infuse Item: Local-first", "Every tool runs on your own machine."),
-    ("Tool Expertise", "C++, C#, Python, TypeScript and Go."),
+    ("Tool Expertise", "C++, C#, Python and TypeScript."),
     ("Flash of Genius", "Ten public projects, each built solo."),
 ]
 # the bigger projects (by commit count), in the order they were finished;
@@ -47,7 +47,49 @@ FEATURES = [
 ROAD = ["Veritarach", "Hecate", "Argos", "Hephastion", "Folio"]
 IDEAL = ["Your data stays on your machine."]
 FLAW = ["Writes a renderer from scratch", "before adding a dependency."]
-HEADERS = {"infusions": "INFUSIONS", "quest-board": "QUEST BOARD", "equipment": "EQUIPMENT"}
+HEADERS = {"crafted-items": "CRAFTED ITEMS", "quest-board": "QUEST BOARD", "equipment": "EQUIPMENT"}
+
+# Crafted items. Rarity comes from commit count unless "rarity" overrides it.
+# Update "commits" now and then:  gh api "repos/Yuuzulight/<name>/commits?per_page=1" -i  (see the last page number)
+GH = "https://github.com/Yuuzulight/"
+PROJECTS = [
+    dict(name="Mana", commits=1489, type="Companion", stack="C# · JS · llama.cpp · Live2D",
+         lines=["Windows AI companion with a Live2D avatar. Speech-to-text,", "LLM, TTS and screen awareness all run on your own PC."]),
+    dict(name="Hecate", commits=176, type="Scrying instrument", stack="Python · dbt · k8s",
+         lines=["Repo intelligence", "over GitHub, npm"]),
+    dict(name="Folio", commits=87, type="Forged tool", stack="C# · SkiaSharp",
+         lines=["HTML/CSS engine", "for .NET"]),
+    dict(name="Hephastion", commits=51, type="Companion", stack="Python · Obsidian",
+         lines=["Obsidian vault", "as AI memory"]),
+    dict(name="Argos", commits=38, type="Forged tool", stack="C++ · Direct2D",
+         lines=["Win32 / Direct2D widget", "engine, zero deps"]),
+    dict(name="Veritarach", commits=32, type="Scrying instrument", stack="Python · PyTorch",
+         lines=["DeBERTa AI-text", "detector, served live"]),
+    dict(name="Rozetta", commits=15, type="Companion", stack="Python",
+         lines=["MCP server for YouTube transcripts and stats"]),
+    dict(name="Veracia", commits=12, type="Scrying instrument", stack="Python",
+         lines=["Evaluation harness for trustworthy ML output"]),
+    dict(name="Wisp", commits=6, type="Companion", stack="Python",
+         lines=["Cited answers on top of SearXNG"]),
+    dict(name="db-artisan", commits=6, type="Forged tool", stack="Agent skills",
+         lines=["Agent skills for schemas and data pipelines"]),
+]
+RARITIES = [(500, "LEGENDARY"), (50, "RARE"), (25, "UNCOMMON"), (0, "COMMON")]
+QUESTS = [  # (title lines, objective lines, reward lines, link)
+    (["Summon a", "companion"], ["Set up Mana", "on your PC."], ["A companion that", "talks back."],
+     GH + "Mana/blob/main/docs/quick_start_windows.md"),
+    (["Visit the", "tavern"], ["Share an idea in", "Mana's discussions."], ["A seat by", "the fire."], GH + "Mana/discussions"),
+    (["Consult the", "atlas"], ["Explore the", "portfolio."], ["Every project,", "with write-ups."], "https://yuuzulight.github.io"),
+]
+EQUIPMENT = [
+    ("WEAPONS", ["C++", "C# / .NET", "Python", "TypeScript"]),
+    ("ARMOR & TOOLS", ["Docker", "Kubernetes", "dbt", "PyTorch"]),
+    ("PACK", ["llama.cpp", "whisper.cpp", "Live2D", "SkiaSharp", "Direct2D"]),
+]
+
+
+def rarity(p):
+    return p.get("rarity") or next(r for n, r in RARITIES if p["commits"] >= n)
 
 # ---------------------------------------------------------------- 5e rules
 def mod(score):
@@ -75,13 +117,13 @@ THEMES = {
         paper=("#f6f0ff", "#ece2ff", "#e0d2fb"), ink="#3a2a5e", ink_soft="#4f4270", label="#8a74c8",
         gloss="#7d66b8", lilac="#b9a2f0", line="#cdb9f5", panel="#ffffff", panel_op=".6", oval="#ffffff",
         accent="#7c5bd6", trail="#5f41b8", grain="#3a2a5e", grain_op=1, vignette=("#7c5bd6", ".14"),
-        moon=("#fdfbff", "1"), moon_halo=("#d9c8fb", ".75"), moon_rim="#c3adf2", crater="#e6dbfb", blossom="#f4a9cf", branch="#8a6fd0",
+        moon=("#fdfbff", "1"), moon_halo=("#d9c8fb", ".75"), moon_rim="#c3adf2", crater="#e6dbfb", legendary="#c24f8c", blossom="#f4a9cf", branch="#8a6fd0",
         lantern=("#f7dbe9", "#e3b3cf"), lantern_glow=("#f7b3d6", ".3"), wisp=("#8fe3dc", ".7"), wisp_core="#ffffff"),
     "night": dict(
         paper=("#2a2358", "#211b48", "#171233"), ink="#f1eaff", ink_soft="#d9ccf7", label="#a997e8",
         gloss="#b9a6f0", lilac="#7a66c0", line="#4d4190", panel="#2e2760", panel_op=".55", oval="#1c1740",
         accent="#b59cf6", trail="#cdb9f5", grain="#e9dcff", grain_op=.5, vignette=("#07051a", ".45"),
-        moon=("#efe6ff", "1"), moon_halo=("#f4ecff", ".45"), moon_rim="#efe6ff", crater="#ddd0f7", blossom="#f7b3d6", branch="#a58be6",
+        moon=("#efe6ff", "1"), moon_halo=("#f4ecff", ".45"), moon_rim="#efe6ff", crater="#ddd0f7", legendary="#f7b3d6", blossom="#f7b3d6", branch="#a58be6",
         lantern=("#f2c6e0", "#f7b3d6"), lantern_glow=("#f7b3d6", ".75"), wisp=("#9ff0ec", ".95"), wisp_core="#e9fffd"),
 }
 SERIF = "Georgia, 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif"
@@ -349,17 +391,148 @@ def header(title, theme):
         '</svg>'])
 
 
+# ---------------------------------------------------------------- lower-half cards
+# Shown side by side at a percentage width, so the type is large enough to stay
+# readable when a phone shrinks a card to a third of its size.
+CARD_CSS = """
+  .rar {{ font: bold 22px {serif}; letter-spacing: 3px; }}
+  .nm {{ font: bold 40px {serif}; fill: {ink}; }}
+  .ds {{ font: 28px {serif}; fill: {soft}; }}
+  .st {{ font: italic 24px {serif}; fill: {gloss}; }}
+  .lb {{ font: 18px {serif}; letter-spacing: 3px; fill: {label}; }}
+  .tl {{ font: bold 32px {serif}; fill: {ink}; }}
+  .eq {{ font: 30px {serif}; fill: {soft}; }}
+"""
+
+
+def panel_svg(w, h, theme, body, title, tilt=0, extra_defs=""):
+    c = THEMES[theme]
+    shape = f'<rect x="8" y="8" width="{w - 16}" height="{h - 16}" rx="14"/>'
+    style = CARD_CSS.format(serif=SERIF, ink=c["ink"], soft=c["ink_soft"], gloss=c["gloss"], label=c["label"])
+    return "\n".join([
+        f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg">',
+        f'<title>{escape(title)}</title>',
+        f'<defs><style>{style}</style>',
+        f'<linearGradient id="pf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{c["paper"][0]}"/><stop offset="1" stop-color="{c["paper"][2]}"/></linearGradient>',
+        grain_pattern(random.Random(w * 7 + h), c), extra_defs, '</defs>',
+        f'<g transform="rotate({tilt} {w / 2} {h / 2})">',
+        f'<g fill="url(#pf)" stroke="{c["lilac"]}" stroke-width="2.5">{shape}</g>',
+        f'<g fill="url(#grain)">{shape}</g>',
+        body, '</g>', '</svg>'])
+
+
+def rarity_colour(r, c):
+    return {"LEGENDARY": c["legendary"], "RARE": c["accent"], "UNCOMMON": c["gloss"]}[r]
+
+
+def item_card(p, theme, wide=False):
+    c = THEMES[theme]
+    r = rarity(p)
+    w, h = (500, 300) if wide else (330, 300)
+    body = [t(30, 56, r, "rar", extra=f' fill="{rarity_colour(r, c)}"'), t(30, 110, p["name"], "nm")]
+    body += [t(30, 162 + 36 * i, line, "ds") for i, line in enumerate(p["lines"])]
+    body += [t(30, 262, p["stack"], "st"), blossom(w - 40, 40, 9, c)]
+    return panel_svg(w, h, theme, "".join(body), f'{p["name"]}: {r.title()} {p["type"].lower()}')
+
+
+def legendary_banner(p, theme):
+    c = THEMES[theme]
+    halo = (f'<radialGradient id="halo"><stop offset="0" stop-color="{c["lantern_glow"][0]}" stop-opacity="{c["lantern_glow"][1]}"/>'
+            f'<stop offset="1" stop-color="{c["lantern_glow"][0]}" stop-opacity="0"/></radialGradient>')
+    body = ['<circle cx="880" cy="140" r="100" fill="url(#halo)"/>',
+            f'<g transform="translate(880 140)"><path d="M0 -70 L40 -20 L0 70 L-40 -20 Z" fill="{c["line"]}"/>'
+            f'<path d="M0 -70 L0 70 L-40 -20 Z" fill="{c["accent"]}"/><path d="M-40 -20 H40" stroke="{c["paper"][0]}" stroke-width="2"/></g>',
+            t(40, 62, f'{rarity(p)} · {p["type"].upper()} · MAIN QUEST', "rar", extra=f' fill="{c["legendary"]}"'),
+            f'<text x="40" y="130" font-family="{escape(SERIF)}" font-size="64" font-weight="bold" fill="{c["ink"]}">{escape(p["name"])}</text>']
+    body += [f'<text x="40" y="{178 + 36 * i}" font-family="{escape(SERIF)}" font-size="28" fill="{c["ink_soft"]}">{escape(line)}</text>'
+             for i, line in enumerate(p["lines"])]
+    body += [t(40, 258, p["stack"], "st"), blossom(965, 40, 10, c)]
+    return panel_svg(1000, 280, theme, "".join(body), f'{p["name"]}: legendary companion, the main quest', extra_defs=halo)
+
+
+def quest_note(q, theme, tilt):
+    c = THEMES[theme]
+    title, objective, reward, _ = q
+    body = [f'<circle cx="165" cy="34" r="10" fill="{c["blossom"]}"/><circle cx="162" cy="31" r="3" fill="#fff" fill-opacity=".7"/>']
+    body += [t(30, 86 + 36 * i, line, "tl") for i, line in enumerate(title)]
+    body.append(t(30, 172, "OBJECTIVE", "lb"))
+    body += [t(30, 206 + 32 * i, line, "ds") for i, line in enumerate(objective)]
+    body.append(t(30, 290, "REWARD", "lb"))
+    body += [t(30, 324 + 32 * i, line, "ds") for i, line in enumerate(reward)]
+    return panel_svg(330, 390, theme, "".join(body), "Quest: " + " ".join(title), tilt)
+
+
+def equipment_panel(theme):
+    c = THEMES[theme]
+    body = []
+    for i, (label, items) in enumerate(EQUIPMENT):
+        x = 50 + i * 320
+        body.append(t(x, 64, label, "lb"))
+        body += [t(x, 116 + 44 * k, item, "eq") for k, item in enumerate(items)]
+    body.append(blossom(960, 40, 9, c))
+    return panel_svg(1000, 340, theme, "".join(body), "Equipment: " + ", ".join(i for _, items in EQUIPMENT for i in items))
+
+
+def picture(name, alt, width):
+    return (f'<picture><source media="(prefers-color-scheme: dark)" srcset="assets/{name}-night.svg" />'
+            f'<img src="assets/{name}-day.svg" width="{width}" alt="{escape(alt)}" /></picture>')
+
+
+def readme_block():
+    """The generated part of README.md, between the items markers."""
+    ranked = {r: [p for p in PROJECTS if rarity(p) == r] for _, r in RARITIES}
+    mana = ranked["LEGENDARY"][0]
+
+    def link(p, inner):
+        return f'<a href="{GH}{p["name"]}">{inner}</a>'
+
+    out = ['<p align="center">', "  " + picture("header-crafted-items", "Crafted items", "100%"), "</p>", "",
+           '<p align="center">', "  " + link(mana, picture("item-" + mana["name"].lower(), f'{mana["name"]}, legendary companion and main quest', "100%")),
+           "</p>", ""]
+    for r, width in [("RARE", "32%"), ("UNCOMMON", "48.5%")]:
+        out.append('<p align="center">')
+        out += ["  " + link(p, picture("item-" + p["name"].lower(), f'{p["name"]}: {r.title()} {p["type"].lower()}', width)) for p in ranked[r]]
+        out += ["</p>", ""]
+    commons = " · ".join(f'<a href="{GH}{p["name"]}">{p["name"]}</a> <sub>{escape(p["lines"][0])}</sub>' for p in ranked["COMMON"])
+    out += [f'<p align="center"><sub>COMMON ITEMS</sub><br/>{commons}</p>', "",
+            '<p align="center">', "  " + picture("header-quest-board", "Quest board", "100%"), "</p>", "", '<p align="center">']
+    out += [f'  <a href="{q[3]}">{picture(f"quest-{i + 1}", "Quest: " + " ".join(q[0]), "32%")}</a>' for i, q in enumerate(QUESTS)]
+    out += ["</p>", "", '<p align="center">', "  " + picture("header-equipment", "Equipment", "100%"), "</p>", "",
+            '<p align="center">', "  " + picture("equipment", "Equipment: " + ", ".join(i for _, items in EQUIPMENT for i in items), "100%"), "</p>"]
+    return "\n".join(out)
+
+
+def write_readme():
+    path = ASSETS.parent / "README.md"
+    text = path.read_text(encoding="utf-8")
+    start, end = "<!-- items:start -->", "<!-- items:end -->"
+    assert start in text and end in text, "README.md needs the items markers"
+    head, rest = text.split(start, 1)
+    path.write_text(head + start + "\n" + readme_block() + "\n" + end + rest.split(end, 1)[1], encoding="utf-8")
+
+
 def check():
     assert [mod(s) for s in (8, 9, 10, 11, 17)] == [-1, -1, 0, 0, 3]
     assert (PROF, SPELL_DC, SPELL_ATTACK) == (4, 15, 7)
     assert HP == 8 + MODS["CON"] + (LEVEL - 1) * (5 + MODS["CON"])
     assert THEMES["day"].keys() == THEMES["night"].keys(), "themes must define the same colours"
+    assert [rarity(dict(commits=n)) for n in (1489, 50, 49, 25, 6)] == ["LEGENDARY", "RARE", "UNCOMMON", "UNCOMMON", "COMMON"]
+    assert rarity(dict(commits=6, rarity="RARE")) == "RARE"
+    assert sum(rarity(p) == "LEGENDARY" for p in PROJECTS) == 1, "exactly one legendary item (the main quest)"
 
 
 if __name__ == "__main__":
     check()
     for theme in THEMES:
-        (ASSETS / f"character-sheet-{theme}.svg").write_text(sheet(theme), encoding="utf-8")
-        for slug, title in HEADERS.items():
-            (ASSETS / f"header-{slug}-{theme}.svg").write_text(header(title, theme), encoding="utf-8")
+        files = {"character-sheet": sheet(theme), "equipment": equipment_panel(theme)}
+        files.update({f"header-{slug}": header(title, theme) for slug, title in HEADERS.items()})
+        for p in PROJECTS:
+            if rarity(p) == "LEGENDARY":
+                files["item-" + p["name"].lower()] = legendary_banner(p, theme)
+            elif rarity(p) != "COMMON":
+                files["item-" + p["name"].lower()] = item_card(p, theme, wide=rarity(p) == "UNCOMMON")
+        files.update({f"quest-{i + 1}": quest_note(q, theme, tilt) for i, (q, tilt) in enumerate(zip(QUESTS, (-2, 1.5, -1)))})
+        for name, svg in files.items():
+            (ASSETS / f"{name}-{theme}.svg").write_text(svg, encoding="utf-8")
+    write_readme()
     print(f"HP {HP}, DC {SPELL_DC}, passive perception {PASSIVE_PERCEPTION}, saves {SAVES}")
