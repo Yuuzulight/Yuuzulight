@@ -2,21 +2,6 @@
   <a href="https://github.com/Yuuzulight/Mana"><img src="assets/character-sheet.svg" width="100%" alt="Character sheet for Yuuzulight, a level 10 Artificer (Cartographer), Neutral Good. The main quest is Mana." /></a>
 </p>
 
-<details>
-<summary><sub>Read the character sheet as text</sub></summary>
-
-**Yuuzulight**: Artificer 10 (Cartographer), Solo Developer, Neutral Good
-
-- **Abilities (rolled):** STR 13 (+1, raw C++), DEX 16 (+3, C# / .NET), CON 14 (+2, runs offline), INT 17 (+3, ML & data), WIS 15 (+2, privacy sense), CHA 12 (+1, Live2D charm)
-- **Combat:** AC 17 (half plate), initiative +3, speed 30 ft, 73 HP (10d8), proficiency +4, spell save DC 15, spell attack +7
-- **Saving throws:** CON +6 and INT +7 (proficient); STR +1, DEX +3, WIS +2, CHA +1
-- **Skills:** Arcana +7 (local LLMs), Investigation +7 (debugging), Sleight of Hand +7 (Win32, Direct2D), Insight +6 (model evals), Stealth +3 (zero telemetry), Perception +2 (screen awareness). Passive Perception 12.
-- **Features:** Homunculus Servant (Mana, a companion construct with a voice and a face), Infuse Item (local-first: every tool runs on your own machine), Tool Expertise (C++, C#, Python, TypeScript, Go), Flash of Genius (ten public projects, each built solo)
-- **Ideal:** Your data stays on your machine. **Flaw:** Writes a renderer from scratch before adding a dependency.
-- **The road so far:** set out → Veritarach → Hecate → Argos → Hephastion → Folio → main quest [Mana](https://github.com/Yuuzulight/Mana), in progress.
-
-</details>
-
 <p align="center"><img src="assets/header-infusions.svg" width="100%" alt="Infusions" /></p>
 
 #### Companion infusions <sub>· local-first AI</sub>
