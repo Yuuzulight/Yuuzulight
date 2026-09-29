@@ -99,7 +99,7 @@ SKILLS = [  # (name, ability, proficient, flavour)
 FEATURES = [
     ("Homunculus Servant: Mana", "A companion construct with a voice and a face."),
     ("Infuse Item: Local-first", "Every tool runs on your own machine."),
-    ("Tool Expertise", "C++, C#, Python and TypeScript."),
+    ("Adventurer's Atlas", "Maps every quest, finished and still underway."),  # Cartographer, level 3
     ("Flash of Genius", f"{(NUMBERS[LEVEL] if LEVEL < len(NUMBERS) else str(LEVEL)).capitalize()} public projects, each built solo."),
 ]
 IDEAL = ["A personal AI of my own, running on my own PC."]
