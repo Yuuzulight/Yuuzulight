@@ -1,0 +1,33 @@
+name: Refresh profile art
+
+# Weekly, and on demand from the Actions tab: fetch live commit counts, redraw
+# the sheet and cards, and commit only if something visible changed.
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Redraw the art
+        run: python scripts/build_sheet.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit if anything changed
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git -c user.name="Yuuzulight" -c user.email="yuuzulight@gmail.com" commit -m "Refresh profile art from live commit counts"
+          git push

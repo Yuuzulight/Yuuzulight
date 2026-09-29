@@ -14,8 +14,9 @@
 
 </defs>
 <g transform="rotate(0 250.0 150.0)">
-<g fill="url(#pf)" stroke="#b9a2f0" stroke-width="2.5"><rect x="8" y="8" width="484" height="284" rx="14"/></g>
-<g fill="url(#grain)"><rect x="8" y="8" width="484" height="284" rx="14"/></g>
-<text x="30" y="56" class="rar" text-anchor="start" fill="#7d66b8">UNCOMMON</text><text x="30" y="110" class="nm" text-anchor="start">Argos</text><text x="30" y="162" class="ds" text-anchor="start">Win32 / Direct2D widget</text><text x="30" y="198" class="ds" text-anchor="start">engine, zero deps</text><text x="30" y="262" class="st" text-anchor="start">C++ · Direct2D</text><g transform="translate(460 40)" fill="#f4a9cf"><ellipse rx="5.0" ry="9.0" transform="rotate(0) translate(0 -9.0)"/><ellipse rx="5.0" ry="9.0" transform="rotate(72) translate(0 -9.0)"/><ellipse rx="5.0" ry="9.0" transform="rotate(144) translate(0 -9.0)"/><ellipse rx="5.0" ry="9.0" transform="rotate(216) translate(0 -9.0)"/><ellipse rx="5.0" ry="9.0" transform="rotate(288) translate(0 -9.0)"/><circle r="3.4" fill="#fff3b0"/></g>
+<g fill="url(#pf)"><rect x="12" y="12" width="476" height="276" rx="12"/></g>
+<g fill="url(#grain)"><rect x="12" y="12" width="476" height="276" rx="12"/></g>
+<rect x="12" y="12" width="476" height="276" rx="12" fill="none" stroke="#b9a2f0" stroke-width="2"/>
+<path d="M41 45 l7 7 -7 7 -7 -7 Z" fill="#7d66b8" stroke="#7d66b8" stroke-width="1.6"/><text x="60" y="60" class="rar" text-anchor="start" fill="#7d66b8">UNCOMMON</text><text x="34" y="114" class="nm" text-anchor="start">Argos</text><text x="34" y="166" class="ds" text-anchor="start">Win32 / Direct2D widget</text><text x="34" y="202" class="ds" text-anchor="start">engine, zero deps</text><text x="34" y="262" class="st" text-anchor="start">C++ · Direct2D</text>
 </g>
 </svg>
