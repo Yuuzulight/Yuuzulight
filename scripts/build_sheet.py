@@ -75,13 +75,13 @@ THEMES = {
         paper=("#f6f0ff", "#ece2ff", "#e0d2fb"), ink="#3a2a5e", ink_soft="#4f4270", label="#8a74c8",
         gloss="#7d66b8", lilac="#b9a2f0", line="#cdb9f5", panel="#ffffff", panel_op=".6", oval="#ffffff",
         accent="#7c5bd6", trail="#5f41b8", grain="#3a2a5e", grain_op=1, vignette=("#7c5bd6", ".14"),
-        moon=("#ffffff", ".55"), moon_halo=("#ffffff", ".8"), blossom="#f4a9cf", branch="#8a6fd0",
+        moon=("#fdfbff", "1"), moon_halo=("#d9c8fb", ".75"), moon_rim="#c3adf2", crater="#e6dbfb", blossom="#f4a9cf", branch="#8a6fd0",
         lantern=("#f7dbe9", "#e3b3cf"), lantern_glow=("#f7b3d6", ".3"), wisp=("#8fe3dc", ".7"), wisp_core="#ffffff"),
     "night": dict(
         paper=("#2a2358", "#211b48", "#171233"), ink="#f1eaff", ink_soft="#d9ccf7", label="#a997e8",
         gloss="#b9a6f0", lilac="#7a66c0", line="#4d4190", panel="#2e2760", panel_op=".55", oval="#1c1740",
         accent="#b59cf6", trail="#cdb9f5", grain="#e9dcff", grain_op=.5, vignette=("#07051a", ".45"),
-        moon=("#efe6ff", "1"), moon_halo=("#f4ecff", ".45"), blossom="#f7b3d6", branch="#a58be6",
+        moon=("#efe6ff", "1"), moon_halo=("#f4ecff", ".45"), moon_rim="#efe6ff", crater="#ddd0f7", blossom="#f7b3d6", branch="#a58be6",
         lantern=("#f2c6e0", "#f7b3d6"), lantern_glow=("#f7b3d6", ".75"), wisp=("#9ff0ec", ".95"), wisp_core="#e9fffd"),
 }
 SERIF = "Georgia, 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif"
@@ -206,7 +206,8 @@ def sheet(theme):
            f'<rect width="{W}" height="{H}" fill="url(#vignette)"/>',
            # moon behind the ribbon: faint by day, full at night
            f'<circle cx="500" cy="60" r="130" fill="url(#moonHalo)"/>',
-           f'<circle cx="500" cy="60" r="56" fill="{c["moon"][0]}" fill-opacity="{c["moon"][1]}"/>',
+           f'<circle cx="500" cy="60" r="56" fill="{c["moon"][0]}" fill-opacity="{c["moon"][1]}" stroke="{c["moon_rim"]}" stroke-width="2"/>',
+           f'<g fill="{c["crater"]}"><circle cx="478" cy="30" r="9"/><circle cx="522" cy="22" r="6"/><circle cx="534" cy="44" r="5"/></g>',
            '</g>',
            f'<path d="{torn}" fill="none" stroke="{c["lilac"]}" stroke-width="1.4"/>',
            f'<rect x="28" y="28" width="{W - 56}" height="{H - 56}" rx="6" fill="none" stroke="{c["lilac"]}" stroke-opacity=".8"/>',
