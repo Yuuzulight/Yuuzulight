@@ -15,7 +15,7 @@ ASSETS = Path(__file__).resolve().parent.parent / "assets"
 NAME = "YUUZULIGHT"
 FIELDS = [  # (value, label), laid out 2x2
     ("Artificer 10", "CLASS & LEVEL"), ("Battle Smith", "SUBCLASS"),
-    ("Solo Developer", "BACKGROUND"), ("Local-First Good", "ALIGNMENT"),
+    ("Solo Developer", "BACKGROUND"), ("Neutral Good", "ALIGNMENT"),
 ]
 LEVEL = 10  # one level per public project
 HIT_DIE = 8

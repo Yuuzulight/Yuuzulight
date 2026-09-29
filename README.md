@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://github.com/Yuuzulight/Mana"><img src="assets/character-sheet.svg" width="100%" alt="Character sheet for Yuuzulight, a level 10 Artificer (Battle Smith), Local-First Good. The main quest is Mana." /></a>
+  <a href="https://github.com/Yuuzulight/Mana"><img src="assets/character-sheet.svg" width="100%" alt="Character sheet for Yuuzulight, a level 10 Artificer (Battle Smith), Neutral Good. The main quest is Mana." /></a>
 </p>
 
 <details>
 <summary><sub>Read the character sheet as text</sub></summary>
 
-**Yuuzulight**: Artificer 10 (Battle Smith), Solo Developer, Local-First Good
+**Yuuzulight**: Artificer 10 (Battle Smith), Solo Developer, Neutral Good
 
 - **Abilities (rolled):** STR 13 (+1, raw C++), DEX 16 (+3, C# / .NET), CON 14 (+2, runs offline), INT 17 (+3, ML & data), WIS 15 (+2, privacy sense), CHA 12 (+1, Live2D charm)
 - **Combat:** AC 17 (half plate), initiative +3, speed 30 ft, 73 HP (10d8), proficiency +4, spell save DC 15, spell attack +7
