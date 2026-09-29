@@ -24,11 +24,11 @@ GH = "https://github.com/Yuuzulight/"
 PROJECTS = [
     dict(name="Mana", commits=1489, type="Companion", stack="C# · JS · llama.cpp · Live2D",
          lines=["Windows AI companion with a Live2D avatar. Speech-to-text,", "LLM, TTS and screen awareness all run on your own PC."]),
-    dict(name="Hecate", commits=176, type="Scrying instrument", stack="Python · dbt · k8s", map=2,
-         lines=["Repo intelligence", "over GitHub, npm"]),
+    dict(name="Hecate", commits=176, type="Scrying instrument", stack="Python · dbt · Kubernetes", map=2,
+         lines=["Repo intelligence", "across ecosystems"]),
     dict(name="Folio", commits=87, type="Forged tool", stack="C# · SkiaSharp", map=5,
          lines=["HTML/CSS engine", "for .NET"]),
-    dict(name="Hephastion", commits=51, type="Companion", stack="Python · Obsidian", map=4,
+    dict(name="Hephastion", commits=51, type="Companion", stack="Python · Hermes plugin", map=4,
          lines=["Obsidian vault", "as AI memory"]),
     dict(name="Argos", commits=38, type="Forged tool", stack="C++ · Direct2D", map=3,
          lines=["Win32 / Direct2D widget", "engine, zero deps"]),
@@ -43,7 +43,7 @@ PROJECTS = [
     dict(name="db-artisan", commits=6, type="Forged tool", stack="Agent skills",
          lines=["Agent skills for schemas and data pipelines"]),
 ]
-RARITIES = [(500, "LEGENDARY"), (150, "VERY RARE"), (50, "RARE"), (25, "UNCOMMON"), (0, "COMMON")]
+RARITIES = [(500, "LEGENDARY"), (200, "VERY RARE"), (50, "RARE"), (25, "UNCOMMON"), (0, "COMMON")]
 PIPS = {"COMMON": 1, "UNCOMMON": 1, "RARE": 2, "VERY RARE": 3, "LEGENDARY": 4}
 
 
@@ -102,20 +102,20 @@ FEATURES = [
     ("Tool Expertise", "C++, C#, Python and TypeScript."),
     ("Flash of Genius", f"{(NUMBERS[LEVEL] if LEVEL < len(NUMBERS) else str(LEVEL)).capitalize()} public projects, each built solo."),
 ]
-IDEAL = ["Your data stays on your machine."]
-FLAW = ["Writes a renderer from scratch", "before adding a dependency."]
+IDEAL = ["A personal AI of my own, running on my own PC."]
+FLAW = ["Starts a new quest before", "finishing the last one."]
 HEADERS = {"crafted-items": "CRAFTED ITEMS", "quest-board": "QUEST BOARD", "equipment": "EQUIPMENT"}
 QUESTS = [  # (title lines, objective lines, reward lines, link)
     (["Summon a", "companion"], ["Set up Mana", "on your PC."], ["A companion that", "talks back."],
      GH + "Mana/blob/main/docs/quick_start_windows.md"),
-    (["Browse the", "armory"], ["Look through every", "repository."], ["A seat by", "the fire."],
+    (["Browse the", "armory"], ["Look through every", "repository."], ["A new tool", "for your pack."],
      "https://github.com/Yuuzulight?tab=repositories"),
     (["Consult the", "atlas"], ["Explore the", "portfolio."], ["Every project,", "with write-ups."], "https://yuuzulight.github.io"),
 ]
 EQUIPMENT = [
     ("WEAPONS", ["C++", "C# / .NET", "Python", "TypeScript"]),
     ("ARMOR & TOOLS", ["Half plate (Docker)", "Kubernetes", "dbt", "PyTorch"]),
-    ("PACK", ["llama.cpp", "whisper.cpp", "Live2D", "SkiaSharp", "Direct2D"]),
+    ("PACK", ["Tinker's tools (VS Code)", "llama.cpp", "whisper.cpp", "Live2D", "SkiaSharp", "Direct2D"]),
 ]
 # Mana's crystal, from her character design: a slender faceted shard in violet-blue
 CRYSTAL = dict(light="#d3def6", base="#98b1e0", dark="#7189c9", deep="#566ba8", glow="#a9d8ff")
@@ -431,7 +431,7 @@ CARD_CSS = """
   .tl {{ font: bold 32px {serif}; fill: {ink}; }}
   .eq {{ font: 30px {serif}; fill: {soft}; }}
 """
-TIER_GLOW = {"day": "#b59cf6", "night": "#e9dcff"}  # pearl glow for Very Rare
+TIER_GLOW = {"day": "#b59cf6", "night": "#c9b3f5"}  # pearl glow for Very Rare
 
 
 def tier_frame(w, h, tier, c, theme):
@@ -509,8 +509,8 @@ def legendary_banner(p, theme):
     c = THEMES[theme]
     glow = (f'<radialGradient id="halo"><stop offset="0" stop-color="{CRYSTAL["glow"]}" stop-opacity=".7"/>'
             f'<stop offset="1" stop-color="{CRYSTAL["glow"]}" stop-opacity="0"/></radialGradient>')
-    body = ['<circle cx="872" cy="146" r="112" fill="url(#halo)"/>', crystal(872, 146),
-            "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{CRYSTAL["glow"]}" fill-opacity=".8"/>' for x, y, r in ((816, 92, 3), (930, 210, 2.5), (924, 78, 2))),
+    body = ['<circle cx="872" cy="146" r="140" fill="url(#halo)"/>', crystal(872, 146, 1.3),
+            "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{CRYSTAL["glow"]}" fill-opacity=".8"/>' for x, y, r in ((798, 84, 3), (944, 222, 2.5), (936, 70, 2))),
             rarity_label(44, 66, "LEGENDARY", c, "LEGENDARY · BEING CRAFTED · MAIN QUEST"),
             f'<text x="44" y="136" font-family="{escape(SERIF)}" font-size="64" font-weight="bold" fill="{c["ink"]}">{escape(p["name"])}</text>']
     body += [f'<text x="44" y="{184 + 36 * i}" font-family="{escape(SERIF)}" font-size="28" fill="{c["ink_soft"]}">{escape(line)}</text>'
@@ -520,25 +520,44 @@ def legendary_banner(p, theme):
                      extra_defs=glow, tier="LEGENDARY")
 
 
+NOTE_PAPER = {"day": ("#fcfaff", "#d9c8fb"), "night": ("#ebe2fb", "#b9a2f0")}  # (paper, edge and fold)
+
+
 def quest_note(q, theme, tilt):
-    c = THEMES[theme]
+    """A pale paper notice: torn top edge, folded bottom-right corner, pinned."""
+    paper, edge = NOTE_PAPER[theme]
     title, objective, reward, _ = q
-    body = [f'<circle cx="165" cy="38" r="10" fill="{c["blossom"]}"/><circle cx="162" cy="35" r="3" fill="#fff" fill-opacity=".7"/>']
-    body += [t(34, 90 + 36 * i, line, "tl") for i, line in enumerate(title)]
-    body.append(t(34, 176, "OBJECTIVE", "lb"))
-    body += [t(34, 210 + 32 * i, line, "ds") for i, line in enumerate(objective)]
-    body.append(t(34, 294, "REWARD", "lb"))
-    body += [t(34, 328 + 32 * i, line, "ds") for i, line in enumerate(reward)]
-    return panel_svg(330, 400, theme, "".join(body), "Quest: " + " ".join(title), tilt)
+    rnd = random.Random(len(title[0]) * 31 + len(reward[0]))
+    w, h = 330, 400
+    top = " ".join(f"L{x} {20 + rnd.uniform(-4, 4):.1f}" for x in range(20, w - 19, 10))
+    outline = f"M20 20 {top} L{w - 20} {h - 60} L{w - 60} {h - 20} L20 {h - 20} Z"
+    fold = f"M{w - 20} {h - 60} L{w - 60} {h - 20} L{w - 54} {h - 54} Z"
+    ink, soft, label = "#3a2a5e", "#4f4270", "#8a74c8"  # plum ink on paper in both modes
+    body = [f'<path d="{outline}" fill="{paper}" stroke="{edge}" stroke-width="2"/>',
+            f'<path d="{fold}" fill="{edge}"/>',
+            f'<circle cx="165" cy="44" r="10" fill="{THEMES[theme]["blossom"]}"/><circle cx="162" cy="41" r="3" fill="#fff" fill-opacity=".7"/>']
+    body += [f'<text x="40" y="{96 + 36 * i}" font-family="{escape(SERIF)}" font-size="32" font-weight="bold" fill="{ink}">{escape(line)}</text>'
+             for i, line in enumerate(title)]
+    for y, head, lines in ((182, "OBJECTIVE", objective), (298, "REWARD", reward)):
+        body.append(f'<text x="40" y="{y}" font-family="{escape(SERIF)}" font-size="18" letter-spacing="3" fill="{label}">{head}</text>')
+        body += [f'<text x="40" y="{y + 34 + 32 * i}" font-family="{escape(SERIF)}" font-size="28" fill="{soft}">{escape(line)}</text>'
+                 for i, line in enumerate(lines)]
+    return "\n".join([
+        f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}" xmlns="http://www.w3.org/2000/svg">',
+        f'<title>Quest: {escape(" ".join(title))}</title>',
+        f'<g transform="rotate({tilt} {w / 2} {h / 2})">', *body, '</g>', '</svg>'])
 
 
 def equipment_panel(theme):
+    c = THEMES[theme]
     body = []
-    for i, (label, items) in enumerate(EQUIPMENT):
-        x = 54 + i * 316
+    for x, (label, items) in zip((54, 290, 600), EQUIPMENT):
         body.append(t(x, 68, label, "lb"))
-        body += [t(x, 120 + 44 * k, item, "eq") for k, item in enumerate(items)]
-    return panel_svg(1000, 350, theme, "".join(body), "Equipment: " + ", ".join(i for _, items in EQUIPMENT for i in items))
+        for k, item in enumerate(items):
+            name, _, note = item.partition(" (")
+            extra = f' <tspan font-style="italic" font-size="24" fill="{c["gloss"]}">({escape(note)}</tspan>' if note else ""
+            body.append(f'<text x="{x}" y="{120 + 44 * k}" class="eq">{escape(name)}{extra}</text>')
+    return panel_svg(1000, 400, theme, "".join(body), "Equipment: " + ", ".join(i for _, items in EQUIPMENT for i in items))
 
 
 def picture(name, alt, width):
@@ -588,8 +607,8 @@ def check():
     assert (PROF, SPELL_DC, SPELL_ATTACK) == (4, 15, 7)
     assert HP == 8 + MODS["CON"] + (LEVEL - 1) * (5 + MODS["CON"])
     assert THEMES["day"].keys() == THEMES["night"].keys(), "themes must define the same colours"
-    assert [rarity(dict(commits=n)) for n in (1489, 176, 150, 50, 49, 25, 6)] == \
-        ["LEGENDARY", "VERY RARE", "VERY RARE", "RARE", "UNCOMMON", "UNCOMMON", "COMMON"]
+    assert [rarity(dict(commits=n)) for n in (1489, 200, 199, 50, 49, 25, 6)] == \
+        ["LEGENDARY", "VERY RARE", "RARE", "RARE", "UNCOMMON", "UNCOMMON", "COMMON"]
     assert ROAD == ["Veritarach", "Hecate", "Argos", "Hephastion", "Folio"]
     assert LEVEL == len(PROJECTS) and FIELDS[0][0] == f"Artificer {LEVEL}"
     assert rarity(dict(commits=6, rarity="RARE")) == "RARE"

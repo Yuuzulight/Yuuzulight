@@ -1,5 +1,5 @@
 <svg width="330" height="300" viewBox="0 0 330 300" xmlns="http://www.w3.org/2000/svg">
-<title>Hecate: Very Rare scrying instrument</title>
+<title>Hecate: Rare scrying instrument</title>
 <defs><style>
   .rar { font: bold 22px Georgia, 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif; letter-spacing: 3px; }
   .nm { font: bold 40px Georgia, 'Palatino Linotype', 'Book Antiqua', 'Times New Roman', serif; fill: #f1eaff; }
@@ -16,7 +16,7 @@
 <g transform="rotate(0 165.0 150.0)">
 <g fill="url(#pf)"><rect x="12" y="12" width="306" height="276" rx="12"/></g>
 <g fill="url(#grain)"><rect x="12" y="12" width="306" height="276" rx="12"/></g>
-<rect x="12" y="12" width="306" height="276" rx="12" fill="none" stroke="#e9dcff" stroke-width="18" stroke-opacity="0.1"/><rect x="12" y="12" width="306" height="276" rx="12" fill="none" stroke="#e9dcff" stroke-width="11" stroke-opacity="0.16"/><rect x="12" y="12" width="306" height="276" rx="12" fill="none" stroke="#e9dcff" stroke-width="5" stroke-opacity="0.28"/><rect x="12" y="12" width="306" height="276" rx="12" fill="none" stroke="#4d4190" stroke-width="2.5"/><rect x="20" y="20" width="290" height="260" rx="10" fill="none" stroke="#b59cf6" stroke-width="1.3"/>
-<path d="M41 45 l7 7 -7 7 -7 -7 Z" fill="#f1eaff" stroke="#f1eaff" stroke-width="1.6"/><path d="M59 45 l7 7 -7 7 -7 -7 Z" fill="#f1eaff" stroke="#f1eaff" stroke-width="1.6"/><path d="M77 45 l7 7 -7 7 -7 -7 Z" fill="#f1eaff" stroke="#f1eaff" stroke-width="1.6"/><text x="96" y="60" class="rar" text-anchor="start" fill="#f1eaff">VERY RARE</text><text x="34" y="114" class="nm" text-anchor="start">Hecate</text><text x="34" y="166" class="ds" text-anchor="start">Repo intelligence</text><text x="34" y="202" class="ds" text-anchor="start">over GitHub, npm</text><text x="34" y="262" class="st" text-anchor="start">Python · dbt · k8s</text>
+<rect x="12" y="12" width="306" height="276" rx="12" fill="none" stroke="#b59cf6" stroke-width="2.5"/><rect x="20" y="20" width="290" height="260" rx="10" fill="none" stroke="#4d4190" stroke-width="1.3"/>
+<path d="M41 45 l7 7 -7 7 -7 -7 Z" fill="#b59cf6" stroke="#b59cf6" stroke-width="1.6"/><path d="M59 45 l7 7 -7 7 -7 -7 Z" fill="#b59cf6" stroke="#b59cf6" stroke-width="1.6"/><text x="78" y="60" class="rar" text-anchor="start" fill="#b59cf6">RARE</text><text x="34" y="114" class="nm" text-anchor="start">Hecate</text><text x="34" y="166" class="ds" text-anchor="start">Repo intelligence</text><text x="34" y="202" class="ds" text-anchor="start">across ecosystems</text><text x="34" y="262" class="st" text-anchor="start">Python · dbt · Kubernetes</text>
 </g>
 </svg>

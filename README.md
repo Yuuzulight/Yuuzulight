@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Yuuzulight/Hecate"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-hecate-night.svg" /><img src="assets/item-hecate-day.svg" width="32%" alt="Hecate: Very Rare scrying instrument" /></picture></a>
+  <a href="https://github.com/Yuuzulight/Hecate"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-hecate-night.svg" /><img src="assets/item-hecate-day.svg" width="32%" alt="Hecate: Rare scrying instrument" /></picture></a>
   <a href="https://github.com/Yuuzulight/Folio"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-folio-night.svg" /><img src="assets/item-folio-day.svg" width="32%" alt="Folio: Rare forged tool" /></picture></a>
   <a href="https://github.com/Yuuzulight/Hephastion"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-hephastion-night.svg" /><img src="assets/item-hephastion-day.svg" width="32%" alt="Hephastion: Rare companion" /></picture></a>
 </p>
@@ -47,8 +47,8 @@
 </p>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/equipment-night.svg" /><img src="assets/equipment-day.svg" width="100%" alt="Equipment: C++, C# / .NET, Python, TypeScript, Half plate (Docker), Kubernetes, dbt, PyTorch, llama.cpp, whisper.cpp, Live2D, SkiaSharp, Direct2D" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/equipment-night.svg" /><img src="assets/equipment-day.svg" width="100%" alt="Equipment: C++, C# / .NET, Python, TypeScript, Half plate (Docker), Kubernetes, dbt, PyTorch, Tinker&#x27;s tools (VS Code), llama.cpp, whisper.cpp, Live2D, SkiaSharp, Direct2D" /></picture>
 </p>
 <!-- items:end -->
 
-<p align="center"><sub>✦ Long rest taken. Thanks for stopping by, adventurer. ✦</sub></p>
+<p align="center"><sub>✦ Pull up a seat by the fire. Thanks for stopping by, adventurer. ✦</sub></p>
