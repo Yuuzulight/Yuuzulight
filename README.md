@@ -15,8 +15,11 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/Yuuzulight/Folio"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-folio-night.svg" /><img src="assets/item-folio-day.svg" width="100%" alt="Folio: Legendary forged tool, being crafted, the main quest" /></picture></a>
+</p>
+
+<p align="center">
   <a href="https://github.com/Yuuzulight/Hecate"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-hecate-night.svg" /><img src="assets/item-hecate-day.svg" width="32%" alt="Hecate: Rare scrying instrument" /></picture></a>
-  <a href="https://github.com/Yuuzulight/Folio"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-folio-night.svg" /><img src="assets/item-folio-day.svg" width="32%" alt="Folio: Rare forged tool" /></picture></a>
   <a href="https://github.com/Yuuzulight/Hephastion"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-hephastion-night.svg" /><img src="assets/item-hephastion-day.svg" width="32%" alt="Hephastion: Rare companion" /></picture></a>
 </p>
 
