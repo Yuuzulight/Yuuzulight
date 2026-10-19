@@ -25,6 +25,10 @@
 
 <p align="center">
   <a href="https://github.com/Yuuzulight/Argos"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-argos-night.svg" /><img src="assets/item-argos-day.svg" width="48.5%" alt="Argos: Uncommon forged tool" /></picture></a>
+  <a href="https://github.com/Yuuzulight/Arcana"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-arcana-night.svg" /><img src="assets/item-arcana-day.svg" width="48.5%" alt="Arcana: Uncommon forged tool" /></picture></a>
+</p>
+
+<p align="center">
   <a href="https://github.com/Yuuzulight/Veritarach"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/item-veritarach-night.svg" /><img src="assets/item-veritarach-day.svg" width="48.5%" alt="Veritarach: Uncommon scrying instrument" /></picture></a>
 </p>
 

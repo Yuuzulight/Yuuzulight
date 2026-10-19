@@ -17,6 +17,6 @@
 <g fill="url(#pf)"><rect x="12" y="12" width="476" height="276" rx="12"/></g>
 <g fill="url(#grain)"><rect x="12" y="12" width="476" height="276" rx="12"/></g>
 <rect x="12" y="12" width="476" height="276" rx="12" fill="none" stroke="#7a66c0" stroke-width="2"/>
-<path d="M41 45 l7 7 -7 7 -7 -7 Z" fill="#b9a6f0" stroke="#b9a6f0" stroke-width="1.6"/><text x="60" y="60" class="rar" text-anchor="start" fill="#b9a6f0">UNCOMMON</text><text x="34" y="114" class="nm" text-anchor="start">Veritarach</text><text x="34" y="166" class="ds" text-anchor="start">DeBERTa AI-text</text><text x="34" y="202" class="ds" text-anchor="start">detector, served live</text><text x="34" y="262" class="st" text-anchor="start">Python · PyTorch</text>
+<path d="M41 45 l7 7 -7 7 -7 -7 Z" fill="#b9a6f0" stroke="#b9a6f0" stroke-width="1.6"/><text x="60" y="60" class="rar" text-anchor="start" fill="#b9a6f0">UNCOMMON</text><text x="34" y="114" class="nm" text-anchor="start">Veritarach</text><text x="34" y="166" class="ds" text-anchor="start">DeBERTa AI-text</text><text x="34" y="202" class="ds" text-anchor="start">detector, retired</text><text x="34" y="262" class="st" text-anchor="start">Python · PyTorch</text>
 </g>
 </svg>
